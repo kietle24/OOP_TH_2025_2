@@ -1,0 +1,84 @@
+package qlhp;
+
+import java.util.*;
+import java.time.LocalDate;
+
+public class QuanLyHocPhan {
+    private List<HocPhan> dshp;
+
+    public QuanLyHocPhan() {
+        dshp = new ArrayList<>();
+    }
+
+    public List<HocPhan> getDshp() {
+        return dshp;
+    }
+
+    public void setDshp(List<HocPhan> dshp) {
+        this.dshp = dshp;
+    }
+
+    /**
+     * Prints all HocPhan objects in the list to the console.
+     */
+    public void inDanhSach() {
+        if (dshp.isEmpty()) {
+            System.out.println("Danh sách rỗng.");
+            return;
+        }
+        System.out.println("--- DANH SÁCH HỌC PHẦN ---");
+        for (HocPhan hocPhan : dshp) {
+            System.out.println(hocPhan);
+        }
+        System.out.println("---------------------------");
+    }
+
+    /**
+     * Adds a new HocPhan to the list, but only if an entry with the same MSSV
+     * does not already exist.
+     * @param hocPhanMoi The HocPhan object to add.
+     * @return true if the addition was successful, false otherwise.
+     */
+    public boolean addHocPhan(HocPhan hocPhanMoi) {
+        // First, check if the object to add is valid
+        if (hocPhanMoi == null) {
+            return false;
+        }
+        
+        // Use the find method below to check for existence
+        if (timHocPhanTheoMSSV(hocPhanMoi.getMssv()) != null) {
+            System.err.println("Lỗi: Mã số sinh viên '" + hocPhanMoi.getMssv() + "' đã tồn tại.");
+            return false; // A course with this MSSV already exists
+        }
+        
+        // If it doesn't exist, add it to the list
+        return dshp.add(hocPhanMoi);
+    }
+
+    /**
+     * Finds and returns a HocPhan object based on MSSV.
+     * @param mssv The student ID to search for.
+     * @return The found HocPhan object, or null if not found.
+     */
+    public HocPhan timHocPhanTheoMSSV(String mssv) {
+        for (HocPhan hp : dshp) {
+            if (hp.getMssv().equalsIgnoreCase(mssv)) {
+                return hp;
+            }
+        }
+        return null; // Return null if no match is found
+    }
+
+    /**
+     * Removes a HocPhan from the list based on MSSV.
+     * @param mssv The student ID of the course to remove.
+     * @return true if removal was successful, false otherwise.
+     */
+    public boolean xoaHocPhanTheoMSSV(String mssv) {
+        HocPhan hpCanXoa = timHocPhanTheoMSSV(mssv);
+        if (hpCanXoa != null) {
+            return dshp.remove(hpCanXoa);
+        }
+        return false; // Did not find the course to remove
+    }
+}

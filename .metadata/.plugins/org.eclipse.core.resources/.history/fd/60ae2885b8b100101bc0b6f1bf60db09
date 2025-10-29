@@ -1,0 +1,30 @@
+package quanly;
+
+public class Main {
+	public static void main(String[] args) {
+		QuanLyNhanVien qlnv = new QuanLyNhanVien() ; 
+//5 nhan vien hop le 
+		NhanVien nv1 = new NhanVienVanPhong("NV01", "An", "0909123456", 2.5);
+        NhanVien nv2 = new NhanVienVanPhong("NV02", "Bình", "0912345678", 3.0);
+        NhanVien nv3 = new NhanVienVanPhong("NV03", "Chi", "0934567890", 2.8);
+        NhanVien nv4 = new NhanVienBanHang("NV04", "Dũng", "0945123987", 30000000); // doanh số 30tr
+        NhanVien nv5 = new NhanVienBanHang("NV05", "Hà", "0986037474", 15000000); 
+// them vao danh sach 
+        qlnv.themNhanVien(nv1);
+        qlnv.themNhanVien(nv2);
+        qlnv.themNhanVien(nv3);
+        qlnv.themNhanVien(nv4);
+        qlnv.themNhanVien(nv5);
+     // hien thi danh sach 
+        System.out.println("Danh Sach Nhan Vien ");
+        System.out.println(qlnv.inTieuDe()); 
+        qlnv.hienThiDanhsach(); 
+       // ho ten rong 
+        
+        
+    	
+	}
+
+	
+	
+}

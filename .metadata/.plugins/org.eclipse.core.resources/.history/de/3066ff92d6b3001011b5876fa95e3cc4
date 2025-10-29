@@ -1,0 +1,37 @@
+package qlhp;
+import java.util.*;
+public class QuanLyHocPhan {
+	private List<HocPhan> dshp ; 
+	public QuanLyHocPhan(){ 
+		dshp = new ArrayList<>() ; 	
+	}
+	public List<HocPhan> getDshp() {
+		return dshp;
+	}
+	public void setDshp(List<HocPhan> dshp) {
+		this.dshp = dshp;
+	}
+	public void inDanhSach() {  
+		  for (HocPhan hocPhan : dshp) {
+		  System.out.println(hocPhan);
+		  }
+	}
+	// Phương thức thêm học phần vào danh sách
+	public boolean themHocPhan(HocPhan hocPhan ) {  
+		for(HocPhan hp : dshp ) {  
+			   if (hp.getMssv().equals(hocPhan.getMssv())) { 
+				return false ; 
+			}
+		}
+		dshp.add(hocPhan) ; 
+		return true ; 
+	}
+	
+	
+	
+	
+
+
+
+}
+

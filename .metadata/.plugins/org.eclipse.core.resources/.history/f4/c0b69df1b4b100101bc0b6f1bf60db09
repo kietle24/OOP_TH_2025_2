@@ -1,0 +1,33 @@
+package quanly;
+public class NhanVienVanPhong extends NhanVien{
+	private double heSoLuong ; 
+
+	public NhanVienVanPhong(
+			String maSoNV, String hoTen, 
+			int dienThoai,  double heSoLuong) {
+		super(maSoNV, hoTen, dienThoai);
+		if(heSoLuong <= 1.86 || heSoLuong >= 8.69 ) { 
+			 throw new IllegalArgumentException("he so luong khong hop le ") ; 
+	}
+	this.heSoLuong = heSoLuong;
+}
+
+public double getHeSoLuong() {
+	return heSoLuong;
+}
+public void setHeSoLuong(double heSoLuong) {
+	if(heSoLuong <= 1.86 || heSoLuong >= 8.69 ) { 
+		 throw new IllegalArgumentException("he so luong khong hop le ") ; 
+	}
+	this.heSoLuong = heSoLuong;
+}
+@Override
+public double tinhLuong() {
+	
+	return getLuongCanBan() * heSoLuong ; 
+}
+public String toString() {
+    return super.toString() + "Hệ số lương: " + heSoLuong;
+    }
+
+}

@@ -1,0 +1,58 @@
+package quanly;
+import java.util.*;
+public class QuanLyNhanVien {
+	private List<NhanVien> dsnv; 
+	
+	//construct 
+	public QuanLyNhanVien() { 
+		dsnv  = new ArrayList<>(); 
+	}
+	// hien thi danh sach 
+	public void hienThiDanhsach(NhanVien nv ) {  
+		 for(NhanVien n : dsnv  ) { 
+			 System.out.println(nv);
+		 }
+	}
+	// kiem tra trung ma 
+	public boolean kiemTraTrungMa(NhanVien nv ) { 
+		 if (nv == null )  {  
+			 return false  ; 
+			 
+		 }
+		 for(NhanVien n : dsnv) {  
+			 if(n.getMaSoNV().equalsIgnoreCase(nv.getMaSoNV())) { 
+				 return true ; 
+			 }
+			}
+		 return false  ; 
+
+	}
+	// them nhan vien 
+	public boolean themNhanVien(NhanVien nv ) { 
+		if(nv == null )	return false ; 
+		if(kiemTraTrungMa(nv)) {  
+			throw  new IllegalArgumentException("ma nhan vien da ton tai " + nv.getMaSoNV()) ; 
+		}
+		dsnv.add(nv) ;
+		System.out.println("them nhan vien thanh cong");
+		return true ; 
+	}
+	public NhanVien xoaNhanVien(String maSoNV) {  
+		NhanVien nv = kiemTraTrungMa(maSoNV) ; 
+		if(nv != null) { 
+			dsnv.remove(maSoNV) ; 
+			return null ; 
+		}
+		return null;
+		 
+	}
+	public NhanVien timKiemNhanVien(String maSoNV) {  
+		return dsnv.stream().sorted(Comparator.comparing(p->p.getma))
+				
+		 
+	}
+	
+	
+	
+	
+}

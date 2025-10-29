@@ -1,0 +1,34 @@
+package quanly;
+
+public  class NhanVienBanHang extends NhanVien {
+	public static final int thuNhapTangThem = 0;
+	private double doanhSoBan ;
+
+	public NhanVienBanHang(
+			String maSoNV,
+			String hoTen, 
+			String dienThoai,
+			double doanhSoBan) {
+		super(maSoNV, hoTen, dienThoai);
+		this.doanhSoBan = doanhSoBan;
+	}
+
+	public double getDoanhSoBan() {
+		return doanhSoBan;
+	}
+
+	public void setDoanhSoBan(double doanhSoBan) {
+		this.doanhSoBan = doanhSoBan;
+	}
+
+	  @Override
+	    public double tinhLuong() {
+	        double thuNhapTangThem = (doanhSoBan >= 20000000) ? 0.03 * doanhSoBan : 0;
+	        return getLuongCanBan() + thuNhapTangThem;
+	    }
+	    public String toString() {
+	        return super.toString() + "Doanh số bán: " + doanhSoBan;
+	    }
+	
+	
+}

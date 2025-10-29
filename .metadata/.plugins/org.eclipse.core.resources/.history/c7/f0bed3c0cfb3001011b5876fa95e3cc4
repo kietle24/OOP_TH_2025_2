@@ -1,0 +1,144 @@
+package qlhp;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+public abstract class HocPhan {
+	protected final String mssv ; 
+	protected String hoTen ; 
+	protected double hocPhi ; 
+	protected LocalDate ngayBatDau  ; 
+	protected LocalDate ngayKetThuc ; 
+	protected double diemMucTieu ; 
+	protected double ketQua ;
+	// construct mac dinh    =0    
+	public HocPhan() {
+		this.mssv = "";
+		this.hoTen = "";
+		this.hocPhi = 0.0;
+		this.ngayBatDau = LocalDate.now();
+		this.ngayKetThuc = LocalDate.now();
+		this.diemMucTieu = 0.0;
+		this.ketQua = 0.0;
+	}
+	public HocPhan(String mssv, 
+			String hoTen, 
+			double hocPhi, 
+			LocalDate ngayBatDau, 
+			LocalDate ngayKetThuc,
+			double diemMucTieu, double ketQua) {
+		if(mssv == null | mssv.trim().isEmpty()) { 
+			throw new IllegalArgumentException(" ma khong duoc rong ") ; 
+		}
+		if(diemMucTieu < 0 || diemMucTieu > 990 ) {  
+			throw new IllegalArgumentException("diem muc tieu phai tu 0 < 990") ; 
+		}
+		if(ngayKetThuc.isBefore(ngayBatDau)) { 
+			throw new IllegalArgumentException("ngay thuc phai sau ngay bat dau") ; 
+		}
+		this.mssv = mssv.trim();
+		this.hoTen = hoTen;
+		this.hocPhi = hocPhi;
+		this.ngayBatDau = ngayBatDau;
+		this.ngayKetThuc = ngayKetThuc;
+		this.diemMucTieu = diemMucTieu;
+		this.ketQua = ketQua;
+	}
+	public String getHoTen() {
+		return hoTen;
+	}
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+	public double getHocPhi() {
+		return hocPhi;
+	}
+	public void setHocPhi(double hocPhi) {
+		this.hocPhi = hocPhi;
+	}
+	public LocalDate getNgayBatDau() {
+		return ngayBatDau;
+	}
+	public void setNgayBatDau(LocalDate ngayBatDau) {
+		this.ngayBatDau = ngayBatDau;
+	}
+	public LocalDate getNgayKetThuc() {
+		return ngayKetThuc;
+	}
+	public void setNgayKetThuc(LocalDate ngayKetThuc) {
+		if(ngayKetThuc.isBefore(ngayBatDau)) { 
+			throw new IllegalArgumentException("ngay thuc phai sau ngay bat dau") ; 
+		}
+		this.ngayKetThuc = ngayKetThuc;
+	}
+	public double getDiemMucTieu() {
+		return diemMucTieu;
+	}
+	public void setDiemMucTieu(double diemMucTieu) {
+		if(diemMucTieu < 0 || diemMucTieu > 990 ) {  
+			throw new IllegalArgumentException("diem muc tieu phai tu 0 < 990") ; 
+		}
+		this.diemMucTieu = diemMucTieu;
+	}
+	public double getKetQua() {
+		return ketQua;
+	}
+	public void setKetQua(double ketQua) {
+		this.ketQua = ketQua;
+	}
+	public String getMssv() {
+		return mssv;
+	}
+	// PHUONG THUC TINH DIEM KHEN THUONG 
+	public double tinhKhenThuong() { 
+		 double khenThuong = 0 ; 
+		 if (ketQua >= diemMucTieu) {
+			 khenThuong  = hocPhi *0.2 ;
+		 }
+		 return khenThuong  ; 
+	}
+	
+	public abstract double tinhHocPhi(); 
+
+	@Override
+public String toString() {
+		DecimalFormat formatter  = new DecimalFormat("###,###,###") ; 
+	return String.format ("%s | %s | %s | %s | %s | %.2f | %.2f",
+			this.mssv,
+			this.hoTen,
+			ngayBatDau.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+	        ngayKetThuc.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+			this.diemMucTieu , this.ketQua) ;
+}
+	@Override
+	public int hashCode() {
+		return Objects.hash(
+				diemMucTieu, hoTen, hocPhi, ketQua, mssv, ngayBatDau, ngayKetThuc);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		HocPhan other = (HocPhan) obj;
+		return Double.doubleToLongBits(diemMucTieu) == 
+				Double.doubleToLongBits(other.diemMucTieu)
+				&& Objects.equals(hoTen, other.hoTen)
+				&& Double.doubleToLongBits(hocPhi) == 
+				Double.doubleToLongBits(other.hocPhi)
+				&& Double.doubleToLongBits(ketQua) == 
+				Double.doubleToLongBits(other.ketQua)
+				&& Objects.equals(mssv, other.mssv) && 
+				Objects.equals(ngayBatDau, other.ngayBatDau)
+				&& Objects.equals(ngayKetThuc, other.ngayKetThuc);
+	}
+
+	
+	
+	
+ 
+
+}

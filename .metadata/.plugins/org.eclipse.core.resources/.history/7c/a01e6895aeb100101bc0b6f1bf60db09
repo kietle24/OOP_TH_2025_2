@@ -1,0 +1,10 @@
+package quanly;
+import java.util.*;
+public class QuanLyNhanVien {
+	private List<NhanVien> dsnv; 
+	
+	//construct 
+	public QuanLyNhanVien() { 
+		dsnv  = new ArrayList<>(); 
+	}
+}

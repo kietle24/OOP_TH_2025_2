@@ -1,0 +1,88 @@
+package quanlynhanvien;
+import java.text.DecimalFormat;
+import java.util.Objects;
+public abstract class NhanVien {
+	protected String manv ; 
+	protected String hoVaTen ; 
+	protected String dienThoai ; 
+	protected double luongCanBan  ;
+	public NhanVien() {		
+		this.manv = "NV001" ; 
+		this.hoVaTen = "No Name" ; 
+		this.dienThoai = "123456789" ; 
+		this.luongCanBan = 0.0 ; 
+	
+	}
+	public NhanVien(
+			String manv,
+			String hoVaTen,
+			String dienThoai,
+			double luongCanBan) {
+		if(manv == null || manv.trim().isEmpty()) {  
+			throw new IllegalArgumentException("khong duoc de trong ma nv ") ; 
+		}
+		this.manv = manv;
+		this.hoVaTen = hoVaTen;
+		this.dienThoai = dienThoai;
+		this.luongCanBan = luongCanBan;
+	}
+	public String getManv() {
+		return manv;
+	}
+	public void setManv(String manv) {
+		this.manv = manv;
+	}
+	public String getHoVaTen() {
+		
+		return hoVaTen;
+	}
+	public void setHoVaTen(String hoVaTen) {
+		if(hoVaTen == null || hoVaTen.trim().isEmpty()) {  
+			throw new IllegalArgumentException("khong duoc de trong ho ten  ") ; 
+		}
+		this.hoVaTen = hoVaTen.trim();
+	}
+	public String getDienThoai() {
+		return dienThoai;
+	}
+	public void setDienThoai(String dienThoai) {
+		if(dienThoai == null || dienThoai.trim().isEmpty()) {  
+			throw new IllegalArgumentException("khong duoc de trong dien thoai ") ; 
+		}
+		this.dienThoai = dienThoai;
+	}
+	public double getLuongCanBan() {
+		return luongCanBan;
+	}
+	public void setLuongCanBan(double luongCanBan) {
+		this.luongCanBan = luongCanBan;
+	}
+	public abstract double tinhLuong() ;
+	
+	
+	@Override
+	public String toString() {
+		DecimalFormat df = new DecimalFormat("#,##0.##") ; 
+		return String.format("%-8s | %-15s | %-11s | %12f | %12f |" , 
+				
+				this.manv, this.hoVaTen , 
+				this.dienThoai  , df.format(luongCanBan) , 
+				df.format(tinhLuong())) ; 
+	} 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		NhanVien other = (NhanVien) obj;
+		return Objects.equals(manv, other.manv);
+	} 
+	
+	
+	
+
+}
+

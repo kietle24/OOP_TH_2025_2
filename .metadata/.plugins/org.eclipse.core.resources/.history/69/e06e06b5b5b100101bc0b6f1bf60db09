@@ -1,0 +1,10 @@
+package quanly;
+
+public class Main {
+	public static void main(String[] args) {
+		QuanLyNhanVien qlnv = new QuanLyNhanVien() ; 
+		NhanVien nv1 = new NhanVienVanPhong("NV01", "An", "099999999999", 2.5);
+		NhanVien nv2 = new NhanVienVanPhong("NV02", "BINH", "09999", 2.5);
+
+	}
+}

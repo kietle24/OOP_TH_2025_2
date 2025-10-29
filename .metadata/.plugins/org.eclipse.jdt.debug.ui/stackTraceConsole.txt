@@ -1,0 +1,4 @@
+public String inTieuDe() { 
+		return String.format("%-8s | %-15s | %-11s | %12f | %12f |",
+				"MANV" , "HO TEN" ," SDT" ,"Luong Can Ban" , " Tien Luong" ); 
+	}

@@ -1,0 +1,44 @@
+package qlhp;
+import java.util.*;
+import java.time.LocalDate;
+
+public class QuanLyHocPhan {
+	private List<HocPhan> dshp ; 
+	public QuanLyHocPhan(){ 
+		dshp = new ArrayList<>() ; 	
+	}
+	public List<HocPhan> getDshp() {
+		return dshp;
+	}
+	public void setDshp(List<HocPhan> dshp) {
+		this.dshp = dshp;
+	}
+	public void inDanhSach() {  
+		  for (HocPhan hocPhan : dshp) {
+		  System.out.println(hocPhan);
+		  }
+	}
+
+	public boolean addHocPhan(HocPhan hocPhan) {
+	    
+	    for (HocPhan hp : dshp) {
+	        if (hp.getMssv().equals(hocPhan.getMssv())) {
+	        	
+	        }
+	            return false; 
+	        }
+	    
+	   System.out.println("them hoc phan ");
+	    dshp.add(hocPhan);
+	    return true;  
+	}
+
+	
+	
+	
+	
+
+
+
+}
+

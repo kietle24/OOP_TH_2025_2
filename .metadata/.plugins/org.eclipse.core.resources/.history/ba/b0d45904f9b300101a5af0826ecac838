@@ -1,0 +1,31 @@
+package quanlynhanvien;
+
+public abstract class NhanVien {
+	protected String manv ; 
+	protected String hoVaTen ; 
+	protected String dienThoai ; 
+	protected double luongCanBan  ;
+
+	public NhanVien() {		
+	
+	}
+	public NhanVien(
+			String manv,
+			String hoVaTen,
+			String dienThoai,
+			double luongCanBan) {
+		if(manv == null || manv.trim().isEmpty()) {  
+			throw new IllegalArgumentException("khong duoc de trong ma nv ") ; 
+		}
+		this.manv = manv;
+		this.hoVaTen = hoVaTen;
+		this.dienThoai = dienThoai;
+		this.luongCanBan = luongCanBan;
+	} 
+	
+	
+	
+	
+
+}
+

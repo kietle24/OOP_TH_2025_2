@@ -1,0 +1,38 @@
+package quanlynhanvien;
+
+public abstract class NhanVien {
+	protected String manv ; 
+	protected String hoVaTen ; 
+	protected String dienThoai ; 
+	protected double luongCanBan  ;
+
+	public NhanVien() {		
+	
+	}
+	public NhanVien(
+			String manv,
+			String hoVaTen,
+			String dienThoai,
+			double luongCanBan) {
+		if(manv == null || manv.trim().isEmpty()) {  
+			throw new IllegalArgumentException("khong duoc de trong ma nv ") ; 
+		}
+		this.manv = manv;
+		this.hoVaTen = hoVaTen;
+		this.dienThoai = dienThoai;
+		this.luongCanBan = luongCanBan;
+	}
+	@Override
+	public String toString() {
+		return String.format("%-8s | %-15s | %-11s | %d " , 
+				this.manv, this.hoVaTen , this.dienThoai  , this.luongCanBan ) ; 
+	} 
+	
+	
+	
+	
+	
+	
+
+}
+

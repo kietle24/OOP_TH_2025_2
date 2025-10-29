@@ -1,0 +1,94 @@
+package qlhp;
+import java.util.*;
+import java.time.LocalDate;
+public class QuanLyHocPhan {
+    private List<HocPhan> dshp;
+    public QuanLyHocPhan() {
+        dshp = new ArrayList<>();
+    }
+    public List<HocPhan> getDshp() {
+        return dshp;
+    }
+
+    public void setDshp(List<HocPhan> dshp) {
+        this.dshp = dshp;
+    }
+
+   public void inDanhSach() {
+        if (dshp.isEmpty()) {
+            System.out.println("Danh sách rỗng.");
+            return;
+        }
+        System.out.println("DANH SÁCH HỌC PHẦN");
+        System.out.println(inTieuDe());
+        for (HocPhan hocPhan : dshp) {
+            System.out.println(hocPhan);
+        }
+      
+    }
+   public boolean addHocPhan(HocPhan hocPhanMoi) {
+    
+        if (hocPhanMoi == null) {
+            return false;
+        }
+       
+        if (timHocPhanTheoMSSV(hocPhanMoi.getMssv()) != null) {
+            System.out.println("Lỗi: Mã số sinh viên '" + hocPhanMoi.getMssv() + "' đã tồn tại.");
+            return false; 
+        }
+        
+     
+        return dshp.add(hocPhanMoi);
+    }
+    public HocPhan timHocPhanTheoMSSV(String mssv) {
+        for (HocPhan hp : dshp) {
+            if (hp.getMssv().equalsIgnoreCase(mssv)) {
+                return hp;
+            }
+        }
+        return null; 
+    }
+    public boolean xoaHocPhanTheoMSSV(String mssv) {
+        HocPhan hpCanXoa = timHocPhanTheoMSSV(mssv);
+        if (hpCanXoa != null) {
+            return dshp.remove(hpCanXoa);
+        }
+        return false;
+    }
+    
+    public double tinhTongTienKhenThuong(int thang, int nam) {
+        double tongTienThuong = 0.0;
+        for (HocPhan hp : dshp) {
+            LocalDate ngayBatDau = hp.getNgayBatDau();
+            if (ngayBatDau.getMonthValue() == thang && ngayBatDau.getYear() == nam) {
+                tongTienThuong += hp.tinhTienThuong();
+            }
+        }
+        return tongTienThuong;
+    }
+}
+
+    
+    
+    
+    
+  
+    
+    
+   
+    
+    
+    
+    
+    public String inTieuDe()  { 
+        return String.format("%-7s | %-15s | %12s | %12s | %12s| %10s | %10s | %12s |",
+                "MSSV",
+                "HoTen",
+                "Hoc Phi",
+                "Ngay Bat Dau",
+                "Ngay Ket Thuc",
+                "Diem Muc Tieu",
+                "Ket Qua",
+                "Tien Thuong");
+    }
+}

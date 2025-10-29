@@ -1,0 +1,36 @@
+package qlhp;
+
+import java.time.LocalDate;
+
+public class Main {
+	public static void main(String[] args) {
+		QuanLyHocPhan qlhp = new QuanLyHocPhan() ; 
+try {
+	 HocPhanTrucTuyen 
+     hv1 = new HocPhanTrucTuyen
+     ("A001", "Nguyen Van A", 2e6, LocalDate.of(2000, 01, 01),LocalDate.of(2000, 12, 01), 990.0, 550.0, "https://example.com");
+     
+     HocPhanTrucTuyen 
+     hv2 = new HocPhanTrucTuyen
+     ("A002", "Nguyen Van B", 3e6, LocalDate.of(2000, 01, 01),LocalDate.of(2000, 12, 01), 550.0, 550.0, "https://example1.com");
+     
+     HocPhanTrucTuyen 
+     hv3 = new HocPhanTrucTuyen
+     ("A003", "Nguyen Van C", 4e6, LocalDate.of(2000, 01, 01),LocalDate.of(2000, 12, 02), 660.0, 550.0, "https://example2.com");
+     qlhp.addHocPhan(hv1);  // Thêm hv1 vào danh sách
+     qlhp.addHocPhan(hv2);  // Thêm hv2 vào danh sách
+     qlhp.addHocPhan(hv3);
+     qlhp.inDanhSach(); 
+      
+    
+} catch (Exception e) {      e.printStackTrace();  //
+	
+}
+	       
+			
+		
+	
+
+}
+}
+	

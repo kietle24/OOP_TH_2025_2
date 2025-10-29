@@ -1,0 +1,45 @@
+package quanlynhanvien;
+
+
+
+public class Main {
+	public static void main(String[] args) {
+		CongTy ct = new CongTy()  ;
+	try {
+		NhanVien nv1 = new NhanVienBanHang("NV01", "NGUYEN VAN A", "0986037474", 3e6, 30e6);
+		NhanVien nv2 = new NhanVienBanHang("NV02", "NGUYEN VAN B", "0986037423", 4e6, 31e6);
+		NhanVien nv3 = new NhanVienBanHang("NV04", "NGUYEN VAN C", "0986037412", 5e6, 12e6);
+		NhanVien nv4 = new NhanVienHanhChinh("NV05", "LE VAN D", "0986037122", 5e6 , 8);
+		NhanVien nv6 = new NhanVienHanhChinh("NV06", "LE VAN E", "0986037473", 5e6 , 5);
+		NhanVien nv7 = new NhanVienHanhChinh("NV07", "LE VAN F", "0986037566", 5e6 , 3);
+		ct.themNhanVien(nv1);
+		ct.themNhanVien(nv2);
+		ct.themNhanVien(nv3);
+		ct.themNhanVien(nv4);
+		ct.themNhanVien(nv6);
+		ct.themNhanVien(nv7);
+		System.out.println("Danh Sach Nhan Vien ");
+		System.out.println(ct.tieuDe());
+		ct.inDanhSach();
+		
+	} catch (Exception e) {
+		System.out.println("Them Nhan Vien That Bai ");
+		e.printStackTrace();
+	}
+			
+	try {
+		System.out.println("kiem tra xoa nhan vien hop le NV02: ");
+		ct.xoaNhanVien("NV02");
+		System.out.println("Danh Sach Nhan Vien ");
+		System.out.println(ct.tieuDe());
+		ct.inDanhSach();
+		
+		
+	} catch (Exception e) {
+		System.out.println("Them Nhan Vien That Bai ");
+		e.printStackTrace();
+}
+		
+	}
+
+}

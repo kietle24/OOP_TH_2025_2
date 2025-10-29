@@ -1,0 +1,48 @@
+package qlhp;
+
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+
+public class HocPhanTrucTuyen extends HocPhan{
+	private String linkHoc ;
+	public HocPhanTrucTuyen(
+		String mssv, 
+		String hoTen, 
+		double hocPhi, 
+		LocalDate ngayBatDau, 
+		LocalDate ngayKetThuc,
+		double diemMucTieu, double ketQua , String linkHoc) {
+		super(mssv, hoTen, hocPhi, ngayBatDau, ngayKetThuc, diemMucTieu, ketQua);
+		this.linkHoc = linkHoc   ; 
+	}
+	
+	public double tinhKhenThuong() { 
+		 double khenThuong = 0 ; 
+		 if (ketQua >= diemMucTieu) {
+			 khenThuong  = hocPhi *0.2 ;
+		 }
+		 return khenThuong  ; 
+	}
+
+	@Override
+	public double tinhHocPhi() {
+		double tinhThuongThem = 0 ; 
+		if(this.linkHoc != null && this.linkHoc.trim().isEmpty() ) { 
+			 throw new IllegalArgumentException("khong duoc de trong link hoc ");
+		}
+		double chenhLechDiem = this.ketQua - this.diemMucTieu ; 
+		if (chenhLechDiem  >  0 ) {  
+			 tinhThuongThem =(chenhLechDiem / 100) * hocPhi * 0.1 ;  
+		}
+		return  tinhHocPhi() + tinhThuongThem;
+	}
+	
+	@Override
+	public String toString() {
+	return super.toString() + "%s" + this.linkHoc  ; 
+	}
+
+	
+}

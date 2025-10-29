@@ -1,0 +1,36 @@
+package qlhp;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+public class HocPhanTrucTuyen extends HocPhan{
+	private String linkHoc ;
+
+
+
+	public HocPhanTrucTuyen(
+			String mssv, 
+			String hoTen, 
+			double hocPhi, 
+			LocalDate ngayBatDau, 
+			LocalDate ngayKetThuc,
+			double diemMucTieu, double ketQua , String linkHoc) {
+		super(mssv, hoTen, hocPhi, ngayBatDau, ngayKetThuc, diemMucTieu, ketQua);
+		this.linkHoc = linkHoc   ; 
+	}
+
+
+	@Override
+	public String toString() {
+		DecimalFormat formatter  = new DecimalFormat("###,###,###") ; 
+	return String.format ("%s | %s | %s | %s | %s | %.2f | %.2f | %s",
+			this.mssv,
+			this.hoTen,
+			ngayBatDau.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+	        ngayKetThuc.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+			this.diemMucTieu , this.ketQua, this.linkHoc) ;
+	}
+	
+	
+	
+	
+}

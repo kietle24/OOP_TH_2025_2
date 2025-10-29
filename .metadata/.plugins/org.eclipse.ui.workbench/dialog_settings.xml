@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewWizardAction">
+		<section name="NewWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="574"/>
+			<item key="DIALOG_Y_ORIGIN" value="225"/>
+			<item key="DIALOG_WIDTH" value="788"/>
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="ImportExportAction">
+		<section name="ImportExportWizard.dialogBounds">
+		</section>
+	</section>
+	<section name="ZipFileImportWizard">
+		<section name="ZipFileImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="574"/>
+			<item key="DIALOG_Y_ORIGIN" value="176"/>
+			<item key="DIALOG_WIDTH" value="893"/>
+			<item key="DIALOG_HEIGHT" value="604"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="WorkbenchPreferenceDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="499"/>
+		<item key="DIALOG_Y_ORIGIN" value="8"/>
+		<item key="DIALOG_WIDTH" value="938"/>
+		<item key="DIALOG_HEIGHT" value="1060"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|12.0|0|WINDOWS|1|-16|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

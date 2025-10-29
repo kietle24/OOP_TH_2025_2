@@ -1,0 +1,10 @@
+package quanlynhanvien;
+
+public abstract class NhanVien {
+	protected String manv ; 
+	protected String hoVaTen ; 
+	protected String dienThoai ; 
+	protected double luongCanBan  ; 
+
+}
+

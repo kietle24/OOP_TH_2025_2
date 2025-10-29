@@ -1,0 +1,19 @@
+package qlhp;
+import java.util.*;
+public class QuanLyHocPhan {
+	private List<HocPhan> dshp ; 
+	public QuanLyHocPhan(){ 
+		dshp = new ArrayList<>() ; 	
+		
+	}
+	public List<HocPhan> getDshp() {
+		return dshp;
+	}
+	public void setDshp(List<HocPhan> dshp) {
+		this.dshp = dshp;
+	}
+
+
+
+}
+

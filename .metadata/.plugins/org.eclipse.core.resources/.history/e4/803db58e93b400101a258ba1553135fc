@@ -1,0 +1,126 @@
+package quanly;
+
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		  
+		QuanLyNhanVien qlnv = new QuanLyNhanVien() ; 
+		//them 5 nhan vien hop le 
+		try {
+
+			NhanVien nv1 = new NhanVienVanPhong("NV01", "An", "0909123456", 2.5);
+	        NhanVien nv2 = new NhanVienVanPhong("NV02", "Bình", "0912345678", 3.0);
+	        NhanVien nv9 = new NhanVienVanPhong("NV02", "Bình", "0912345678", 3.0);
+	        NhanVien nv3 = new NhanVienVanPhong("NV03", "Chi", "0934567890", 2.8);
+	        NhanVien nv4 = new NhanVienBanHang("NV04", "Dũng", "0945123987", 30000000); // doanh số 30tr
+	        NhanVien nv5 = new NhanVienBanHang("NV05", "Hà", "0986037474", 15000000); 
+	        // them vao danh sach 
+	        qlnv.themNhanVien(nv1);
+	        qlnv.themNhanVien(nv2);
+	        qlnv.themNhanVien(nv3);
+	        qlnv.themNhanVien(nv4);
+	        qlnv.themNhanVien(nv5);
+	        qlnv.themNhanVien(nv9); 
+	   
+	        // hien thi danh sach 
+	        System.out.println("Danh Sach Nhan Vien ");
+	        System.out.println(qlnv.inTieuDe()); 
+	        qlnv.hienThiDanhsach();
+	        System.out.println();
+	        
+		} catch (Exception e) {
+			System.out.println("loi them nhan vien " + e.getMessage());
+		}
+		
+		try {
+			System.out.println("kiem tra ma so nhan vien rong");
+			 NhanVien nvloiten1 = new NhanVienBanHang("", "Hà", "0986037474", 15000000);
+			qlnv.themNhanVien(nvloiten1);
+		} catch (Exception e) {
+			System.out.println( e.getMessage());
+		}
+		 
+		try {
+			System.out.println("kiem tra loi ho va ten rong");
+			 NhanVien nvloiten2 = new NhanVienBanHang("NV06", "", "0986037474", 15000000);
+			qlnv.themNhanVien(nvloiten2);
+		} catch (Exception e) {
+			System.out.println( e.getMessage());
+		}
+		
+		try {
+			System.out.println("kiem tra so dien thoai it nhat 9 so ");
+			 NhanVien nvloiten3 = new NhanVienBanHang("NV06", "Tuan", "09860", 15000000);
+			qlnv.themNhanVien(nvloiten3);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		try {
+			System.out.println("luong can ban khong duoc < 0  ");
+			 NhanVien nvloiten3 = new NhanVienBanHang("NV08", "Dung", "0986037474", 0);
+			qlnv.themNhanVien(nvloiten3);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		try {
+			System.out.println("kiem tra he so luong khong hop le  ");
+			 NhanVien nvloi4 = new NhanVienVanPhong("NV08", "Dung", "0986037474", 1.7);
+			qlnv.themNhanVien(nvloi4);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		try {
+			System.out.println("kiem tra tim kiem nhan vien hop le NV02: ");
+			NhanVien nvTim = qlnv.timKiemNhanVien("NV02");
+			if(nvTim != null) { 
+				System.out.println("tim thay nhan vien " + nvTim.getMaSoNV());
+			}else  {  
+				System.out.println("?");
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		try {
+			System.out.println("kiem tra xoa nhan vien hop le NV02: ");
+			NhanVien nvXoa = qlnv.xoaNhanVien("NV02");
+			if(nvXoa != null) { 
+				System.out.println("Xoa Thanh Cong Nhan Vien " + nvXoa.getMaSoNV());
+			}else  {  
+				System.out.println("Khong Xoa Thanh Cong");
+			}
+			   System.out.println(qlnv.inTieuDe());
+			  qlnv.hienThiDanhsach();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		try {
+			System.out.println();
+			Map<String , Double > ketQua = qlnv.thongKeLuongTrungBinh() ;  
+			System.out.println("Thong ke Trung Binh Nhan Vien");
+			for(String loai : ketQua.keySet()) { 
+				 System.out.println(loai+ " : " + ketQua.get(loai));
+			}
+			
+			
+		} catch (Exception e) {
+			
+		}
+		
+		
+        
+    	
+	}
+
+	
+	
+}

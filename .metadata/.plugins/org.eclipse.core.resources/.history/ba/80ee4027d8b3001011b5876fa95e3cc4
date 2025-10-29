@@ -1,0 +1,46 @@
+package qlhp;
+
+import java.time.LocalDate;
+public class Main {
+    public static void main(String[] args) {
+        QuanLyHocPhan qlhp = new QuanLyHocPhan(); // Khởi tạo đối tượng QuanLyHocPhan
+
+        try {
+            // Tạo các đối tượng HocPhanTrucTuyen
+            HocPhanTrucTuyen hv1 = new HocPhanTrucTuyen(
+                "A001", "Nguyen Van A", 2e6, 
+                LocalDate.of(2000, 1, 1), 
+                LocalDate.of(2000, 12, 1), 
+                990.0, 550.0, "https://example.com"
+            );
+
+            HocPhanTrucTuyen hv2 = new HocPhanTrucTuyen(
+                "A002", "Nguyen Van B", 3e6, 
+                LocalDate.of(2000, 1, 1), 
+                LocalDate.of(2000, 12, 1), 
+                550.0, 550.0, "https://example1.com"
+            );
+
+            HocPhanTrucTuyen hv3 = new HocPhanTrucTuyen(
+                "A003", "Nguyen Van C", 4e6, 
+                LocalDate.of(2000, 1, 1), 
+                LocalDate.of(2000, 12, 2), 
+                660.0, 550.0, "https://example2.com"
+            );
+
+            // Hiển thị danh sách học phần
+            qlhp.inDanhSach();  // Gọi phương thức inDanhSach để in danh sách học phần
+
+        } catch (Exception e) {
+            System.out.println("Có lỗi khi thêm học phần: " + e.getMessage());
+        }
+    }
+}
+       
+			
+		
+	
+
+}
+}
+	

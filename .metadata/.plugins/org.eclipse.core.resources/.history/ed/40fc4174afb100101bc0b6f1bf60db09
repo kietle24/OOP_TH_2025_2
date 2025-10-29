@@ -1,0 +1,25 @@
+package quanly;
+import java.util.*;
+public class QuanLyNhanVien {
+	private List<NhanVien> dsnv; 
+	
+	//construct 
+	public QuanLyNhanVien() { 
+		dsnv  = new ArrayList<>(); 
+	}
+	public boolean kiemTraTrungMa(NhanVien nv ) { 
+		 if (nv == null )  {  
+			 return false  ; 
+			 
+		 }
+		 for(NhanVien n : dsnv) {  
+			if(n.getMaSoNV().equalsIgnoreCase(nv.getMaSoNV()) ) {  
+				return true ;  
+			}
+			}
+		 return false  ; 
+
+	}
+	
+	
+}

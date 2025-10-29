@@ -1,0 +1,63 @@
+import java.time.LocalDate;
+
+public abstract class HocPhan {
+    protected final String mssv;  // Mã số học phần (không thay đổi)
+    protected String hoTen;      // Họ tên học viên
+    protected double hocPhi;     // Học phí
+    protected LocalDate ngayBatDau; // Ngày bắt đầu học phần
+    protected LocalDate ngayKetThuc; // Ngày kết thúc học phần
+    protected double diemMucTieu;  // Điểm mục tiêu
+    protected double ketQua;       // Điểm kết quả
+
+    // Constructor cho lớp HocPhan
+    public HocPhan(String mssv, String hoTen, double hocPhi, 
+                   LocalDate ngayBatDau, LocalDate ngayKetThuc, 
+                   double diemMucTieu, double ketQua) {
+        this.mssv = mssv;  // Khởi tạo mã số học phần
+        this.hoTen = hoTen;
+        this.hocPhi = hocPhi;
+        this.ngayBatDau = ngayBatDau;
+        this.ngayKetThuc = ngayKetThuc;
+        this.diemMucTieu = diemMucTieu;
+        this.ketQua = ketQua;
+    }
+
+    // Phương thức trừu tượng tính học phí, sẽ được triển khai trong các lớp con
+    public abstract double tinhHocPhi();
+
+    // Phương thức toString() để hiển thị thông tin học phần
+    @Override
+    public String toString() {
+        return String.format("MSSV: %s | Họ tên: %s | Học phí: %.2f | Ngày bắt đầu: %s | Ngày kết thúc: %s | Điểm mục tiêu: %.2f | Điểm kết quả: %.2f", 
+                             mssv, hoTen, hocPhi, ngayBatDau, ngayKetThuc, diemMucTieu, ketQua);
+    }
+
+    // Getter và Setter (bỏ qua để dễ đọc)
+    public String getMssv() {
+        return mssv;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public double getHocPhi() {
+        return hocPhi;
+    }
+
+    public LocalDate getNgayBatDau() {
+        return ngayBatDau;
+    }
+
+    public LocalDate getNgayKetThuc() {
+        return ngayKetThuc;
+    }
+
+    public double getDiemMucTieu() {
+        return diemMucTieu;
+    }
+
+    public double getKetQua() {
+        return ketQua;
+    }
+}

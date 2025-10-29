@@ -1,0 +1,43 @@
+package quanlynhanvien;
+
+public class NhanVienHanhChinh extends NhanVien {
+	private double heSoLuong  ;
+
+	public NhanVienHanhChinh(double heSoLuong)  { 
+		
+		this.heSoLuong = 0.0 ;
+	}
+	public NhanVienHanhChinh(
+			String manv, 
+			String hoVaTen,
+			String dienThoai, 
+			double luongCanBan, 
+			double heSoLuong) {
+		super(manv, hoVaTen, dienThoai, luongCanBan);
+		setHeSoLuong(heSoLuong);
+	}
+
+	public double getHeSoLuong() {
+		return heSoLuong;
+	}
+	public void setHeSoLuong(double heSoLuong) {
+		if(heSoLuong  <= 1.66 && heSoLuong  >=8.69)  { 
+			throw new IllegalArgumentException(" he so luong khong hop le ") ; 
+		}
+		this.heSoLuong = heSoLuong;
+	}
+
+	@Override
+	public String toString() {
+		return super.toString()  + " " + this.heSoLuong  ;  
+	}
+
+	@Override
+	public double tinhLuong() {
+	return luongCanBan * heSoLuong ; 
+	} 
+	
+
+	
+
+}
