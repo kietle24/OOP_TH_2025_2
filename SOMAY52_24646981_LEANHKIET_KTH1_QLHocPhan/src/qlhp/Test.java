@@ -7,7 +7,7 @@ public class Test {
     public static void main(String[] args) {
         // 1. Initialize the management object
         QuanLyHocPhan qlhp = new QuanLyHocPhan() ; 
-        System.out.println("TRẠNG THÁI DANH SÁCH BAN ĐẦU");
+        System.out.println("TRANG THAI BAN DAU ");
         qlhp.inDanhSach(); 
         try {
         	  HocPhan hv101 = new HocPhanTrucTuyen(
@@ -51,20 +51,20 @@ public class Test {
                     "A005", "Nguyen Van D", 4.5E6,
                     LocalDate.of(2025, 1, 1),
                     LocalDate.of(2025, 12, 1),
-                    600.0, 880.0, "12 Nguyen Van Bao, Gò Vấp",
+                    600.0, 880.0, "12 Nguyen Van Bao, GO VAP ",
                     LocalDateTime.of(2025, 3, 2, 8, 30)
                 );
             HocPhan hv6 = new HocPhanTrucTiep(
                     "A006", "Nguyen Van e", 5.3E6,
                     LocalDate.of(2025, 3, 2),
                     LocalDate.of(2025, 12, 1),
-                    600.0, 880.0, "12 Nguyen Van Bao, Gò Vấp",
+                    600.0, 880.0, "12 Nguyen Van Bao, GO VAP ",
                     LocalDateTime.of(2025, 3, 4, 8, 30)
                 );
             
             
      
-            System.out.println("THÊM CÁC HỌC PHẦN VÀO DANH SÁCH ");
+            System.out.println("THEM CAC HOC PHAN ");
             qlhp.addHocPhan(hv1);
             qlhp.addHocPhan(hv2);
             qlhp.addHocPhan(hv3);
@@ -74,7 +74,7 @@ public class Test {
             qlhp.addHocPhan(hv6); 
             qlhp.addHocPhan(hv101); 
             
-            System.out.println(" DANH SÁCH HỌC PHẦN SAU KHI THÊM ");	
+            System.out.println(" DANH SACH HOC PHAN THEM ");	
             
             qlhp.inDanhSach();
 
