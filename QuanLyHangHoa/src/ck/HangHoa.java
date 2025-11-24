@@ -1,5 +1,6 @@
 package ck;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -44,11 +45,11 @@ public abstract class HangHoa {
 	}
 	@Override
 	public String toString() {
-		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("vi", "VN")); 
+		DecimalFormat d = new  DecimalFormat("#,###,### VNĐ") ; 
 		return String.format("|%10s | %20s | %10s |%10s ",
 				this.maHang, this.tenHang, 
 				
-				nf.format(donGia), nf.format(this.tinhThueVat()) 
+				d.format(donGia), d.format(this.tinhThueVat()) 
 				
 		); 
 	} 

@@ -1,4 +1,6 @@
-public String inTieuDe() { 
-		return String.format("%-8s | %-15s | %-11s | %12f | %12f |",
-				"MANV" , "HO TEN" ," SDT" ,"Luong Can Ban" , " Tien Luong" ); 
-	}
+	@Override
+	public double tinhDoanhThu() {
+		double doanhThu ; 
+		doanhThu = this.soLuongNguoi * DON_GIA_CO_BAN.getTyGia() *0.8 ; 
+		return doanhThu; 
+	} 

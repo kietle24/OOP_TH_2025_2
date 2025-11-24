@@ -68,26 +68,7 @@ public void sapTheoLoaiTrungGiamDanTheoTen() {
 		return soSanhLoai ;
 	}); 
 }
-	 
-public SAwet<Trip> sapXepTheoLoaiVaDoanhThu() { 
-    List<Trip> list = new ArrayList<>(dscx);
-
-    list.sort((a, b) ->  { 
-        boolean aisbike  = a instanceof BikeTrip; 
-        boolean bisbike  = b instanceof BikeTrip; 
-
-        // 1. Ưu tiên loại dịch vụ: Bike trước, Car sau
-        if (aisbike && !bisbike) return -1; 
-        if (!aisbike && bisbike) return 1; 
-
-        // 2. Nếu cùng loại → sắp xếp giảm dần theo thành tiền
-        double t1 = a.tinhThanhTien(); 
-        double t2 = b.tinhThanhTien(); 
-        return Double.compare(t2, t1); 
-    });
-
-    return list; 
-}
+	
 
 }
 		
