@@ -16,17 +16,6 @@ public class Library implements ILibrary {
 		for(Book book: ds_sach ) { 
 			 System.out.println(book);
 		}
-	}
-	
-    // tim kiem theo ma 
-		public Book timBookTheoMa(String code) { 
-			 for(Book book : ds_sach) { 
-				  if(book.getCode()	(code)) {
-					   return book  ; 
-				  }
-			 }
-			 return null ; 
-		}
 	
 	// tuan theo quy luat tuan khai tim ma roi moi tim duoc 
 	public boolean addBook(Book newBook) {

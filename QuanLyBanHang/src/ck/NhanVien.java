@@ -9,7 +9,7 @@ public abstract class NhanVien {
 	protected final String maSo ; 
 	protected String hoTen;
 	protected String dienThoai;
-	protected static final LuongCanBan LUONG_CAN_BAN= LuongCanBan.LUONG_CAN_BAN ;
+	protected static final LuongCanBan LUONG_CAN_BAN = LuongCanBan.LUONG_CAN_BAN ;
 	public NhanVien(String maSo, String hoTen, String dienThoai) {
 		if(maSo == null || maSo.trim().isEmpty()) {
 			throw new IllegalArgumentException("maSo khong hop le "); 
